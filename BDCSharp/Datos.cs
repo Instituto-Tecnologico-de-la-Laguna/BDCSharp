@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace BDCSharp
 {
@@ -32,6 +33,17 @@ namespace BDCSharp
             }
             catch (Exception ex) { return false; }
         
+        }
+
+        public DataSet informacion(string comando)
+        {
+            try { 
+                DataSet ds= new DataSet();
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(comando,conexion());
+                dataAdapter.Fill(ds);
+                return ds;
+            }
+            catch (Exception ex) { return null; }
         }
     }
 }

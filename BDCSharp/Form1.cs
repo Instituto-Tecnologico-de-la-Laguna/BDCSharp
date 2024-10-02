@@ -21,12 +21,16 @@ namespace BDCSharp
         {
             bool f;
             Datos carrera = new Datos();
-            f = carrera.ejecutarComando("Insert Into Carrera" +
+            f = carrera.ejecutarComando("Insert Into Carreras" +
                 "(carrera,clave)" +
                 "Values('"+ txtCarrera.Text + "','" + 
                 txtClave.Text + "')");
             if (f == true)
+            {
                 MessageBox.Show("Carrera Agregada");
+                txtCarrera.Clear();
+                txtClave.Clear();
+            }
             else
                 MessageBox.Show("Error");
         }
