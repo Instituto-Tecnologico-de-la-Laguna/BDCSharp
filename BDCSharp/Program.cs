@@ -16,7 +16,7 @@ namespace BDCSharp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmCarreras());
+            Application.Run(new frmMenu());
         }
     }
 }

@@ -18,7 +18,7 @@ namespace BDCSharp
             InitializeComponent();
         }
 
-        private void frmCarreras_Load(object sender, EventArgs e)
+        private void ActualizaGrid()
         {
             Datos datos = new Datos();
             DataSet ds = new DataSet();
@@ -29,6 +29,26 @@ namespace BDCSharp
                 dgvCarreras.DataSource = ds.Tables[0];
             }
             else { MessageBox.Show("Error"); }
+        }
+        private void frmCarreras_Load(object sender, EventArgs e)
+        {
+            ActualizaGrid();
+        }
+        private void dgvCarreras_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            bool b = false;
+            if (e.ColumnIndex == 0)
+            {
+                //MessageBox.Show(dgvCarreras[1,e.RowIndex].Value .ToString());
+                Form1 actualiza= new Form1(dgvCarreras[2,e.RowIndex].Value .ToString(),
+                    dgvCarreras[3, e.RowIndex].Value.ToString(), 
+                    dgvCarreras[1,e.RowIndex].Value.ToString());
+                actualiza.Show();
+            }
+        }
+        private void frmCarreras_Activated(object sender, EventArgs e)
+        {
+            ActualizaGrid();
         }
     }
 }
